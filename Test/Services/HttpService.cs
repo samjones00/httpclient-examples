@@ -45,7 +45,7 @@ public class Tests
             MovieReviewsEndpoint = "/search?query={0}&key={1}"
         });
 
-        var sut = new HttpService(mockFactory.Object, options);
+        var sut = new MovieReviewService(mockFactory.Object, options);
 
         // Act
         var response = await sut.GetFromJsonAsync("Terminator");

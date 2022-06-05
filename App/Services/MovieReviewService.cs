@@ -4,12 +4,12 @@ using Microsoft.Extensions.Options;
 
 namespace App.Services
 {
-    public class HttpService : IHttpService
+    public class MovieReviewService : Interfaces.IMovieReviewService
     {
         private readonly HttpClient _httpClient;
         private readonly ApiOptions _options;
 
-        public HttpService(IHttpClientFactory httpClientFactory, IOptions<ApiOptions> options)
+        public MovieReviewService(IHttpClientFactory httpClientFactory, IOptions<ApiOptions> options)
         {
             _options = options.Value;
             _httpClient = httpClientFactory.CreateClient();
@@ -36,7 +36,6 @@ namespace App.Services
         public async Task<ApiResponse> GetFromJsonAsync(string name)
         {
             var url = GetQuery(name);
-
             var model = await _httpClient.GetFromJsonAsync<ApiResponse>(url);
 
             return model;
@@ -51,7 +50,6 @@ namespace App.Services
             };
 
             var response = await _httpClient.SendAsync(request);
-
             var json = await response.Content.ReadAsStringAsync();
 
             return json;

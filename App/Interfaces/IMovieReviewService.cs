@@ -2,7 +2,7 @@
 
 namespace App.Interfaces
 {
-    public interface IHttpService
+    public interface IMovieReviewService
     {
         Task<string> GetAsync(string name);
         Task<ApiResponse> GetFromJsonAsync(string name);

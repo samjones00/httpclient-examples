@@ -8,9 +8,9 @@ namespace App.Controllers;
 [Route("[controller]")]
 public class MoviesController : ControllerBase
 {
-    private readonly IHttpService _httpService;
+    private readonly IMovieReviewService _httpService;
 
-    public MoviesController(IHttpService httpService)
+    public MoviesController(IMovieReviewService httpService)
     {
         ArgumentNullException.ThrowIfNull(httpService);
 

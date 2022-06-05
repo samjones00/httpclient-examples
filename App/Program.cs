@@ -9,9 +9,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHttpService(builder.Configuration, x =>
+builder.Services.MovieReviewService(builder.Configuration, x =>
 {
-    //x.ApiKey = ""; //Tests validation
+    //Tests validation
+    //x.ApiKey = ""; 
 });
 
 var app = builder.Build();
