@@ -57,26 +57,5 @@ public class Tests
                 DisplayTitle = "Terminator Salvation"
             }
         });
-
-    }
-
-    private Mock<HttpMessageHandler> CreateMockHttpMessageHandler(HttpStatusCode statusCode, HttpContent content = null)
-    {
-        var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-        handlerMock
-           .Protected()
-           .Setup<Task<HttpResponseMessage>>(
-              "SendAsync",
-              ItExpr.IsAny<HttpRequestMessage>(),
-              ItExpr.IsAny<CancellationToken>()
-           )
-           .ReturnsAsync(new HttpResponseMessage()
-           {
-               StatusCode = statusCode,
-               Content = content
-           })
-           .Verifiable();
-
-        return handlerMock;
     }
 }
